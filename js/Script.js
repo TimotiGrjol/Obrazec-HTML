@@ -41,42 +41,6 @@ function printmsg() {
     }
 }
 
-function SweetAlert() {
-    e.preventDefault();
-    swal.fire("Good job!", "You clicked the button!", "success");
-  }
-
-
-
-
-  // Restricts input for the given textbox to the given inputFilter function.
-function setInputFilter(textbox, inputFilter, errMsg) {
-    ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop", "focusout"].forEach(function(event) {
-      textbox.addEventListener(event, function(e) {
-        if (inputFilter(this.value)) {
-          // Accepted value
-          if (["keydown","mousedown","focusout"].indexOf(e.type) >= 0){
-            this.classList.remove("input-error");
-            this.setCustomValidity("");
-          }
-          this.oldValue = this.value;
-          this.oldSelectionStart = this.selectionStart;
-          this.oldSelectionEnd = this.selectionEnd;
-        } else if (this.hasOwnProperty("oldValue")) {
-          // Rejected value - restore the previous one
-          this.classList.add("input-error");
-          this.setCustomValidity(errMsg);
-          this.reportValidity();
-          this.value = this.oldValue;
-          this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-        } else {
-          // Rejected value - nothing to restore
-          this.value = "";
-        }
-      });
-    });
-  }
-
 
   setInputFilter(document.getElementById("Age"), function(value) {
     return /^-?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
@@ -93,3 +57,43 @@ function Number(evt) {
         return false;
     return true;
         }
+
+//sweetalert koda(ne dela)
+function validateAll() {
+
+    var name =$("#Name").val();
+    var sname =$("#Sname").val();
+    var age =$("#Age").val();
+    var formc =$(".form-control").val();
+    var mail =$("#Mail").val();
+    var cap =$("#Cap").val();
+
+    var radios = $("input[name=Gender]").is(":checked");
+    var checkbox = $("input[name=session]").is(":checked");
+
+  if(name == '' || sname == '' || age == '' || formc == '' || mail == '' || cap == ''){
+    swal({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'you have to fill out every field',
+    })
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+$("#Submit").bind("click", validateAll);
+
+
+
+
+
+
+
+
+
+
+
+
+

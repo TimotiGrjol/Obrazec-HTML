@@ -1,9 +1,11 @@
 body{
-    background-image: url("../images/Background.png"); 
+    background-image: url("../images/Background2.png"); 
     background-repeat: no-repeat;
     background-size:cover;  
      
 }
+
+
 
 /* Oblikovanje glave obrazca */
 #Header{ 
@@ -36,15 +38,16 @@ input:focus, textarea:focus, select:focus{
     /*background-color: white;*/
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
     border-radius:10px; 
-    padding: 0;
+    
     background-color: grey;
     opacity: 0.7;
+     
     
     
 }
 
 .Thing{
-    padding: 10px 20px;
+    padding: 10px 180px;
     
 }
 
@@ -73,7 +76,7 @@ img{
   box-shadow: none; 
   font-size: 20px;
   padding: 2px;
-  width: 58%;
+  width: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -84,7 +87,7 @@ img{
 
 #Mail{
   opacity: 0.7;
-
+  
 }
 
 .Okol, .Okol1,.Gender{
@@ -97,7 +100,7 @@ img{
 }
 
 
-#btn{
+#Submit{
   background-color: rgb(69, 69, 69);
   border: none;
   border-radius: 5px;
@@ -109,7 +112,7 @@ img{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
-#btn:hover{
+#Submit:hover{
   filter:  brightness(0.7) grayscale(1) opacity(.9);
 }
 
@@ -160,7 +163,7 @@ img{
 
 .Okol2 .Custom2{
   height: 45px;
-  width: 57.5%;
+  width: 99%;
   position: relative;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
@@ -284,7 +287,7 @@ img{
 .item{
   padding: 10px 0 10px 10px;
   background-color: lightgray;
-  width: 25%;
+  width: 36.5%;
   border-radius: 5px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 
