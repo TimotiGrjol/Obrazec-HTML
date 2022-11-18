@@ -3,12 +3,12 @@ function generate() {
 
     // Clear old input
     document.getElementById("Cap").value = "";
- 
+
     // Access the element to store
     // the generated captcha
     captcha = document.getElementById("image");
     var uniquechar = "";
- 
+
     const randomchar =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
  
@@ -18,15 +18,15 @@ function generate() {
         uniquechar += randomchar.charAt(
             Math.random() * randomchar.length)
     }
- 
+
     // Store generated input
     captcha.innerHTML = uniquechar;
 }
-    
+
 function printmsg() {
     const usr_input = document
         .getElementById("Cap").value;
-     
+
     // Check whether the input is equal
     // to generated captcha or not
     if (usr_input == captcha.innerHTML) {
@@ -83,17 +83,24 @@ function validateAll() {
     return true;
   }
 }
-$("#Submit").bind("click", validateAll);
 
 
 
+document.getElementById("Obrazec").addEventListener("submit",(e) => {
+  e.preventDefault();
+  sweet();
+
+});
 
 
 
+function sladko() {
+    e.preventDefault();
+    Swal.fire({
+      icon: 'success',
+      title: 'Success',
+      text: 'Registration successful',
+    })
+  
 
-
-
-
-
-
-
+}
