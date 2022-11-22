@@ -58,6 +58,56 @@ function Number(evt) {
     return true;
         }
 
+(function() {
+    const form = document.querySelector('#Obrazec');
+    const checkboxes = form.querySelectorAll('input[type=checkbox]');
+    const checkboxLength = checkboxes.length;
+    const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
+
+    function init() {
+        if (firstCheckbox) {
+            for (let i = 0; i < checkboxLength; i++) {
+                checkboxes[i].addEventListener('change', checkValidity);
+            }
+
+            checkValidity();
+        }
+    }
+
+    function isChecked() {
+        for (let i = 0; i < checkboxLength; i++) {
+            if (checkboxes[i].checked) return true;
+        }
+
+        return false;
+    }
+
+    function checkValidity() {
+        const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
+        firstCheckbox.setCustomValidity(errorMessage);
+    }
+
+    init();
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //sweetalert koda(ne dela)
 function validateAll() {
 
@@ -86,21 +136,108 @@ function validateAll() {
 
 
 
-document.getElementById("Obrazec").addEventListener("submit",(e) => {
-  e.preventDefault();
-  sweet();
 
-});
+var x=document.getElementById("Submit");
 
+x.addEventListener("click",fSweetAlert);
 
 
-function sladko() {
-    e.preventDefault();
-    Swal.fire({
-      icon: 'success',
-      title: 'Success',
-      text: 'Registration successful',
-    })
+
+
+function fSweetAlert(){
   
+    
 
+    
+    
+    var name = document.forms["Obrazec"]["Name"].value;
+    var sname = document.forms["Obrazec"]["Sname"].value;
+    var age = document.forms["Obrazec"]["Age"].value;
+    var formc = document.forms["Obrazec"]["country"].value;
+    var mail = document.forms["Obrazec"]["Mail"].value;
+    var cap = document.forms["Obrazec"]["Cap"].value;
+    if (name == "") {
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Name has to be filled out',
+      })
+      return false;
+    }
+    else if (sname == "") {
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Surname has to be filled out',
+      })
+      return false;
+    }
+    else if (age == "") {
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Age has to be filled out',
+      })
+      return false;
+    }
+    else if (formc == "") {
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Country has to be chosen',
+      })
+      return false;
+    }
+    else if (mail == "") {
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'mail has to be valid',
+      })
+      return false;
+    }
+    else if (cap == "") {
+      swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'answer the captcha',
+      })
+      return false;
+    }
+    
+    else{
+      
+    Swal.fire({
+    heightAuto: false,
+    icon: 'success',
+    title: 'REGISTRATION SUCCESFUL',
+    text: 'You have registered '
+    
+  }, 
+  function(){ 
+    location.reload();
+  })
+  e.preventDefault();
+  
+  
+  
+  }
+  e.preventDefault();
+  
 }
+
+
+
+
+function fireSweetAlert(){
+	
+	
+  Swal.fire({
+heightAuto: false,
+icon: 'success',
+title: 'REGISTRATION SUCCESFUL',
+text: 'You have registered '
+})
+  e.preventDefault();
+}
+form.addEventListener("submit",fireSweetAlert);
